@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create</title>
+</head>
+<body>
+
+<h1>Calculator</h1>
+
+<form action="/calculator/" method="post">
+    {% csrf_token %}
+
+    <label>First number:</label><br/>
+    <input type="number" name="fn"/><br/>
+
+    <label>Second number:</label><br/>
+    <input type="number" name="sn"/><br/>
+
+    <input type="radio" name="operation" value="add"><label>add</label><br/>
+    <input type="radio" name="operation" value="sub"><label>subtract</label><br/>
+    <input type="radio" name="operation" value="mul"><label>multiply</label><br/>
+    <input type="radio" name="operation" value="div"><label>divide</label><br/>
+
+    <input type="submit" value="Calculate"/>
+
+</form>
+
+    <h1>Result:
+    {% if value_add %}
+        {{ first_num }} + {{ second_num }} = {{ value_add }}
+    {% elif value_sub %}
+        {{ first_num }} - {{ second_num }} = {{ value_sub }}
+    {% elif value_mul %}
+        {{ first_num }} * {{ second_num }} = {{ value_mul }}
+    {% elif value_div %}
+        {{ first_num }} / {{ second_num }} = {{ value_div }}
+    {% endif %}
+    </h1>
+
+</body>
+</html>
